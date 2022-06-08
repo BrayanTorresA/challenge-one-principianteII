@@ -1,0 +1,474 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    background-image: radial-gradient(circle at center, #E5E5E5, #eff1fa);
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+
+/* CLASES PARA CADA SECCION DEL JUEGO */
+
+.flex-row-center{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col-center{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col-start{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-col-space{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.button{
+    border-radius: 15px;
+    width: 100%;
+    font-size: 15px;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover{
+    transform: scale(1.05);
+}
+
+.primario{
+    background-color: #0A3871;
+    color: #eff1fa;
+    border: 1px solid #eff1fa;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    letter-spacing: 0.5px;
+}
+
+.secundario{
+    background-color: transparent;
+    color: #0A3871;
+    border: 1px solid #0A3871;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    letter-spacing: 0.5px;
+}
+
+.underscore{
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    border-bottom: 4px solid #0A3871;
+    font-size: 30px;
+    color: #0A3871;
+}
+
+header{
+    height: 10%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-div{
+    width: 800px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#logo-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+}
+
+main{
+    height: 80%;
+    z-index: 1;
+}
+
+#section-inicio{
+    display: flex;
+}
+/***********************************/
+.pantalla-inicial{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-image:radial-gradient(circle at center, #ffffff, #e6e6e6);
+    z-index: 999;
+    animation:screen-out;
+    animation-duration: 1s;
+    animation-timing-function: linear
+}
+
+@keyframes screen-out{
+    0% {width: 100%; height: 100%; opacity: 1;}
+    100% {width: 100%; height: 100%; opacity: 0;}
+}
+/* *************** */
+.screen-in{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    background-image: radial-gradient(circle at center, #ffffff, #e6e6e6);
+    z-index: 999;
+    animation: screen-in;
+    animation-duration: 1s;
+    animation-timing-function: linear
+}
+
+@keyframes screen-in{
+    0% {width: 100%; height: 100%; opacity: 0;}
+    50% {width: 100%; height: 100%; opacity: 1;}
+    0% {width: 100%; height: 100%; opacity: 0;}
+}
+/* ********************** */
+#section-nueva-palabra{
+    display: none;
+    width: 250px;
+    height: 50%;
+}
+
+#section-juego{
+    display: none;
+    width: 650;
+    height: 85%;
+    position: relative;
+}
+
+#caja-mensaje-final{
+    position: absolute;
+    padding: 30px 0px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+    text-shadow:
+        -3px 3px 0 #fff,
+        3px 3px 0 #fff,
+        3px -3px 0 #fff,
+        -3px -3px 0 #fff,
+        0 0 20px #808080;
+}
+
+
+/* *****ANIMACIONES MENSAJE FINAL DEL JUEGO */
+
+.ganar{
+    color: #32c832;
+    top:10%;  
+    font-size: 77px;
+    animation: blinding;
+    animation-duration: 1.1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+.perder{
+    color: #af1919;
+    top: 10%;
+    font-size: 100px;
+    animation: blinding;
+    animation-duration: 1.1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+@keyframes blinding{
+    0% { opacity: 1;}
+    50% { opacity: 0.5;}
+    100% { opacity: 1;}
+}
+
+/* ************************************ */
+
+#caja-palabra-secreta{
+    padding: 10px 0px;
+    width: 300px;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+    background-image: linear-gradient(to left, transparent,#131313 10%, #2B2B2B 90%, transparent);
+    color: #ffffff;
+}
+
+#caja-ahorcado{
+    width: 350px;
+    height: 325px;
+    margin-bottom: 5%;
+    position: relative;
+}
+
+#caja-ahorcado canvas{
+    width: 100%;
+    height: 100%;
+}
+
+#caja-palabras-correctas{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#caja-palabras-erradas{
+    width: 100%;
+    height: 16px;
+    margin: 10px;
+    color:#495057;
+    text-decoration: line-through #000;
+}
+
+#game-buttons-box{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin: 5px;
+}
+
+/*****SECCION PARA AGREGAR NUEVA PALABRA****/
+
+#input-nueva-palabra{
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: 'Inter', cursive;
+    letter-spacing: 0.5px;
+    background: transparent;
+    color: #0A3871;
+    font-size: 15px;
+}
+
+#input-nueva-palabra::placeholder{
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    color: gray;
+    background: transparent;
+}
+
+#advertencia p{
+    color:  #495057;
+    margin-left: 10px;
+    margin-right: 120px;
+    opacity: 0.8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 14px;
+}
+
+#confirmar-nueva-palabra{
+    position: absolute;
+    text-align: center;
+    box-shadow: 0 0 10px #808080;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* ******ANIMACIONES PARA LAS ALERTAS DE AGREGAR NUEVA PALABRA**** */
+
+.alerta-azul{
+    width: 250px;
+    top: -52px;
+    padding: 10px;
+    background-color: #0A3871;
+    animation: appears;
+    animation-duration: 4s;
+    animation-timing-function: linear
+}
+.alerta-roja{
+    width: 250px;
+    top: -52px;
+    padding: 10px;
+    background-color: #af4b4b;
+    animation: appears;
+    animation-duration: 4s;
+    animation-timing-function: linear
+}
+
+@keyframes appears {
+    0%{top: -52px}
+    10%{top: 5px}
+    90%{top: 5px}
+    100%{ top: -52px;}
+}
+
+
+/**** SECCION DEL FOOTER ********/
+
+footer{
+    display: flex;
+    flex-flow: row wrap;
+    height: 10%;
+    background-image:radial-gradient(circle at center, #0c3273, #0A3871, #031e46);
+    color: #eff1fa;
+}
+
+footer p{
+    text-align: center;
+    margin-top: 5px;
+}
+
+footer ul{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+footer li{
+    margin: 10px 10px 0px 10px;
+    color: #eff1fa;
+    transition: 0.2s;
+}
+
+footer li:hover{
+    transform: scale(1.25);
+}
+
+footer li a:link {
+    color: #eff1fa;
+}
+footer li a:visited {
+    color: #eff1fa;
+}
+footer li a:hover {
+    color: #eff1fa;
+}
+footer li a:active {
+    color: #eff1fa;
+}
+
+
+/* MEDIA QUERYS*/
+
+@media (max-width: 650px){
+    #game-buttons-box{
+        width: 310px;
+    }
+
+    #section-juego{
+        display: none;
+        width: 320px;
+        height: 85%;
+    }
+
+    #caja-ahorcado{
+        width: 250px;
+        height: 225px;
+    }
+
+    #caja-mensaje-final{
+        width: cal(250px(175px/2));
+        height: 175px;
+        top: 0px;
+    }
+    .ganar{
+        font-size: 55px;
+    }
+    .perder{
+        font-size: 70px;
+    }
+    .button{
+        margin: 5px 5px;
+    }
+    
+    footer p{
+        width: 250px;
+    }
+}
+
+@media (max-height: 700px){   
+    header{
+        height: 15%;
+    }
+
+    #logo-container{
+        width: 55px;
+    }
+    
+    main{
+        height: 70%;
+    }
+
+    #section-juego{
+        height: 530px;
+    }
+
+    #caja-ahorcado{
+        width: 175px;
+        height: 150px;
+    }
+
+    #caja-ahorcado canvas{
+        width: 100%;
+        height: 100%;
+    }
+
+    #caja-palabras-correctas{
+        width: 320px;
+        height: 35px;
+    }
+
+    .underscore{
+        width: 20px;
+        height: 30px;
+    }
+
+    .button{
+        padding: 8px;
+    }
+
+    #caja-mensaje-final{
+        width: cal(250px(175px/2));
+        height: 175px;
+
+        top: -50px;
+    }
+    .ganar{
+        font-size: 38px;
+    }
+    .perder{
+        font-size: 50px;
+    }
+
+    footer{
+        height: 15%;
+        font-size: 14px;
+        float:inherit;
+    }
+
+    footer p {
+        width: 225px;
+    }
+}
